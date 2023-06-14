@@ -1,0 +1,51 @@
+[
+    {
+      "author": "Harper Lee",
+      "publisher": "HarperCollins",
+      "genre": "Fiction",
+      "price": 20,
+      "quantity": 5,
+      "publication_frequency": "monthly"
+    },
+    {
+      "author": "J.K. Rowling",
+      "publisher": "Bloomsbury Publishing",
+      "genre": "Fantasy",
+      "price": 25,
+      "quantity": 8,
+      "publication_frequency": "weekly"
+    },
+    {
+      "author": "George Orwell",
+      "publisher": "Secker & Warburg",
+      "genre": "Dystopian Fiction",
+      "price": 15,
+      "quantity": 3,
+      "publication_frequency": "monthly"
+    },
+    {
+      "author": "Jane Austen",
+      "publisher": "Thomas Egerton",
+      "genre": "Romance",
+      "price": 18,
+      "quantity": 6,
+      "publication_frequency": "every day"
+    },
+    {
+      "author": "F. Scott Fitzgerald",
+      "publisher": "Charles Scribner's Sons",
+      "genre": "Classic",
+      "price": 22,
+      "quantity": 2,
+      "publication_frequency": "weekly"
+    },
+    {
+      "author": "J.R.R. Tolkien",
+      "publisher": "George Allen & Unwin",
+      "genre": "Fantasy",
+      "price": 30,
+      "quantity": 4,
+      "publication_frequency": "monthly"
+    }
+  ]
+  

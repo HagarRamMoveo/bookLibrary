@@ -2,17 +2,17 @@ import { Schema, model } from "mongoose";
 import mongoose from "mongoose";
 import { ObjectId } from "mongoose";
 
-export interface IBook {
+export interface IJournal {
   _id: ObjectId;
   author: string;
   publisher: string;
   genre: string;
   price: number;
-  quantity?: number;
-  NumberOfPages: number;
+  quantity: number;
+  publication_frequency: string;
 }
 
-export const bookSchema = new Schema<IBook>({
+export const journalSchema = new Schema<IJournal>({
   _id: {
     type: mongoose.Schema.Types.ObjectId,
     auto: true,
@@ -22,7 +22,10 @@ export const bookSchema = new Schema<IBook>({
   genre: { type: String, required: true },
   price: { type: Number, required: false },
   quantity: { type: Number, required: false },
-  NumberOfPages: { type: Number, required: false },
+  publication_frequency: { type: String, required: false },
 });
 
-export const BooksModal = mongoose.model<IBook>("datas", bookSchema);
+export const JournalsModal = mongoose.model<IJournal>(
+  "journals",
+  journalSchema
+);

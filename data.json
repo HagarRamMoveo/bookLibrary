@@ -4,41 +4,47 @@
     "publisher": "HarperCollins",
     "genre": "Fiction",
     "price": 20,
-    "quantity": 5
+    "quantity": 5,
+    "NumberOfPages": 33
   },
   {
     "author": "J.K. Rowling",
     "publisher": "Bloomsbury Publishing",
     "genre": "Fantasy",
     "price": 25,
-    "quantity": 8
+    "quantity": 8,
+    "NumberOfPages": 111
   },
   {
     "author": "George R.R. Martin",
     "publisher": "Bantam Spectra",
     "genre": "Fantasy",
     "price": 30,
-    "quantity": 2
+    "quantity": 2,
+    "NumberOfPages": 322
   },
   {
     "author": "Agatha Christie",
     "publisher": "HarperCollins",
     "genre": "Mystery",
     "price": 15,
-    "quantity": 12
+    "quantity": 12,
+    "NumberOfPages": 378
   },
   {
     "author": "Jane Austen",
     "publisher": "Penguin Classics",
     "genre": "Classic",
     "price": 10,
-    "quantity": 3
+    "quantity": 3,
+    "NumberOfPages": 123
   },
   {
     "author": "Stephen King",
     "publisher": "Scribner",
     "genre": "Horror",
     "price": 18,
-    "quantity": 6
+    "quantity": 6,
+    "NumberOfPages": 282
   }
 ]

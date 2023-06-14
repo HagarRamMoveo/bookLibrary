@@ -1,21 +1,19 @@
 import { Model } from "mongoose";
 import { AbstractItem } from "../model/abstract_item_service";
-import { IBook, BooksModal } from "../model/books.model";
+import { JournalsModal } from "../model/journal.model";
 
-export class BooksService extends AbstractItem {
-  getBooksData: any;
-
+export class JournalsService extends AbstractItem {
   constructor() {
     super();
   }
 
   getModel(): Model<any> {
-    return BooksModal;
+    return JournalsModal;
   }
 
   async getData(): Promise<any[]> {
     try {
-      const journals = await BooksModal.find();
+      const journals = await JournalsModal.find();
       return journals;
     } catch (err) {
       throw err;
@@ -24,7 +22,7 @@ export class BooksService extends AbstractItem {
 
   async create(): Promise<any> {
     try {
-      const newItem = new BooksModal({
+      const newItem = new JournalsModal({
         author: this.author,
         publisher: this.publisher,
         genre: this.genre,
