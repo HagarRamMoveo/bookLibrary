@@ -1,10 +1,8 @@
 import { Model } from "mongoose";
-import { AbstractItem } from "../model/abstract_item_service";
+import { AbstractItem } from "../model/abstract_item";
 import { IBook, BooksModal } from "../model/books.model";
 
 export class BooksService extends AbstractItem {
-  getBooksData: any;
-
   constructor() {
     super();
   }
@@ -15,31 +13,45 @@ export class BooksService extends AbstractItem {
 
   async getData(): Promise<any[]> {
     try {
-      const journals = await BooksModal.find();
-      return journals;
+      const books = await BooksModal.find();
+      console.log(books);
+      return books;
     } catch (err) {
       throw err;
     }
   }
-
-  async create(): Promise<any> {
+  async createNewData(data: IBook): Promise<any> {
     try {
-      const newItem = new BooksModal({
-        author: this.author,
-        publisher: this.publisher,
-        genre: this.genre,
-        price: this.price,
-        quantity: this.quantity,
-        NumberOfPages: this.NumberOfPages,
+      const bookDetails = new BooksModal({
+        name: data.name,
+        author: data.author,
+        publisher: data.publisher,
+        genre: data.genre,
+        price: data.price,
+        quantity: data.quantity,
+        NumberOfPages: data.NumberOfPages,
       });
-      await newItem.save();
-      return newItem;
+      await bookDetails.save();
+      return bookDetails;
     } catch (err) {
       throw err;
     }
   }
 
-  async updateById(itemId: string, updatedData: any): Promise<any> {}
+  async updateData(itemId: string, updatedData: IBook): Promise<any> {
+    console.log("update", itemId);
+    try {
+      await this.getModel().findByIdAndUpdate(itemId, updatedData);
+    } catch (err) {
+      throw err;
+    }
+  }
 
-  async deleteById(itemId: string): Promise<void> {}
+  async deleteData(itemId: string): Promise<void> {
+    try {
+      await this.getModel().findByIdAndDelete(itemId);
+    } catch (err) {
+      throw err;
+    }
+  }
 }

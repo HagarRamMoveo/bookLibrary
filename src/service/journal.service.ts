@@ -1,6 +1,6 @@
 import { Model } from "mongoose";
-import { AbstractItem } from "../model/abstract_item_service";
-import { JournalsModal } from "../model/journal.model";
+import { AbstractItem } from "../model/abstract_item";
+import { IJournal, JournalsModal } from "../model/journal.model";
 
 export class JournalsService extends AbstractItem {
   constructor() {
@@ -20,24 +20,39 @@ export class JournalsService extends AbstractItem {
     }
   }
 
-  async create(): Promise<any> {
+  async createNewData(data: IJournal): Promise<any> {
     try {
-      const newItem = new JournalsModal({
+      const newJournalDetails = new JournalsModal({
         author: this.author,
         publisher: this.publisher,
         genre: this.genre,
         price: this.price,
         quantity: this.quantity,
-        NumberOfPages: this.NumberOfPages,
+        publication_frequency: this.publication_frequency,
       });
-      await newItem.save();
-      return newItem;
+      await newJournalDetails.save();
+      return newJournalDetails;
+    } catch (err) {
+      throw err;
+    }
+  }
+  async updateData(itemId: string, updatedData: IJournal): Promise<any> {
+    console.log("update", itemId);
+    try {
+      await this.getModel().findByIdAndUpdate(itemId, updatedData);
     } catch (err) {
       throw err;
     }
   }
 
-  async updateById(itemId: string, updatedData: any): Promise<any> {}
+  async deleteData(itemId: string): Promise<void> {
+    try {
+      await this.getModel().findByIdAndDelete(itemId);
+    } catch (err) {
+      throw err;
+    }
+  }
+  // async updateData(itemId: string, updatedData: any): Promise<any> {}
 
-  async deleteById(itemId: string): Promise<void> {}
+  // async deleteData(itemId: string): Promise<void> {}
 }

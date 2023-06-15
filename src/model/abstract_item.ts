@@ -1,7 +1,8 @@
-import { Model, Schema, Types } from "mongoose";
+import { Model, Models, Types } from "mongoose";
 
 export abstract class AbstractItem {
   _id: Types.ObjectId;
+  name: string;
   author: string;
   publisher: string;
   genre: string;
@@ -12,6 +13,7 @@ export abstract class AbstractItem {
 
   constructor() {
     this._id = new Types.ObjectId();
+    this.name = "";
     this.author = "";
     this.publisher = "";
     this.genre = "";
@@ -23,26 +25,13 @@ export abstract class AbstractItem {
 
   abstract getModel(): Model<any>;
 
-  async create(): Promise<any> {}
+  async createNewData(data: any): Promise<any> {}
 
-  async updateById(itemId: string, updatedData: any): Promise<any> {
-    try {
-      const item = await this.getModel().findByIdAndUpdate(
-        itemId,
-        updatedData,
-        {
-          new: true,
-        }
-      );
-      return item;
-    } catch (err) {
-      throw err;
-    }
-  }
+  async updateData(itemId: string, updatedData: any): Promise<any> {}
 
-  async deleteById(itemId: string): Promise<void> {
+  async deleteData(itemId: string, model: Models): Promise<void> {
     try {
-      await this.getModel().findByIdAndDelete(itemId);
+      await new model.findByIdAndDelete(itemId);
     } catch (err) {
       throw err;
     }

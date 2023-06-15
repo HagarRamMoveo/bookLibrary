@@ -1,5 +1,6 @@
 [
   {
+    "name": "Harper Lee",
     "author": "Harper Lee",
     "publisher": "HarperCollins",
     "genre": "Fiction",
@@ -8,6 +9,7 @@
     "NumberOfPages": 33
   },
   {
+    "name": "sper",
     "author": "J.K. Rowling",
     "publisher": "Bloomsbury Publishing",
     "genre": "Fantasy",
@@ -16,6 +18,7 @@
     "NumberOfPages": 111
   },
   {
+    "name": "per Lee",
     "author": "George R.R. Martin",
     "publisher": "Bantam Spectra",
     "genre": "Fantasy",
@@ -24,6 +27,7 @@
     "NumberOfPages": 322
   },
   {
+    "name": "Harp",
     "author": "Agatha Christie",
     "publisher": "HarperCollins",
     "genre": "Mystery",
@@ -32,6 +36,7 @@
     "NumberOfPages": 378
   },
   {
+    "name": "June",
     "author": "Jane Austen",
     "publisher": "Penguin Classics",
     "genre": "Classic",
@@ -40,6 +45,7 @@
     "NumberOfPages": 123
   },
   {
+    "name": "Lee",
     "author": "Stephen King",
     "publisher": "Scribner",
     "genre": "Horror",

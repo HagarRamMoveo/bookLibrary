@@ -1,6 +1,7 @@
 import express from "express";
-import books from "./books.routes";
-import journal from "./journal.routes";
+import books from "../controllers/books.controllers";
+import journal from "../controllers/journal.controllers";
+
 
 const router = express.Router();
 

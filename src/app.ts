@@ -1,9 +1,9 @@
-import express from 'express';
-import routes from '../src/routes/index';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import { connectToDB } from './connection';
-import dotenv from 'dotenv';
+import express from "express";
+import routes from "../src/routes/index";
+import bodyParser from "body-parser";
+import cors from "cors";
+import { connectToDB } from "./connection";
+import dotenv from "dotenv";
 dotenv.config();
 const port = process.env.PORT;
 const app = express();
