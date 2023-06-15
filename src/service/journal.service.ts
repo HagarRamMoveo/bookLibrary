@@ -23,12 +23,13 @@ export class JournalsService extends AbstractItem {
   async createNewData(data: IJournal): Promise<any> {
     try {
       const newJournalDetails = new JournalsModal({
-        author: this.author,
-        publisher: this.publisher,
-        genre: this.genre,
-        price: this.price,
-        quantity: this.quantity,
-        publication_frequency: this.publication_frequency,
+        name: data.name,
+        author: data.author,
+        publisher: data.publisher,
+        genre: data.genre,
+        price: data.price,
+        quantity: data.quantity,
+        publication_frequency: data.publication_frequency,
       });
       await newJournalDetails.save();
       return newJournalDetails;
@@ -37,7 +38,6 @@ export class JournalsService extends AbstractItem {
     }
   }
   async updateData(itemId: string, updatedData: IJournal): Promise<any> {
-    console.log("update", itemId);
     try {
       await this.getModel().findByIdAndUpdate(itemId, updatedData);
     } catch (err) {

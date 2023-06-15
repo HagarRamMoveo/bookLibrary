@@ -14,7 +14,6 @@ export class BooksService extends AbstractItem {
   async getData(): Promise<any[]> {
     try {
       const books = await BooksModal.find();
-      console.log(books);
       return books;
     } catch (err) {
       throw err;
@@ -39,7 +38,6 @@ export class BooksService extends AbstractItem {
   }
 
   async updateData(itemId: string, updatedData: IBook): Promise<any> {
-    console.log("update", itemId);
     try {
       await this.getModel().findByIdAndUpdate(itemId, updatedData);
     } catch (err) {

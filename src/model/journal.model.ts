@@ -4,6 +4,7 @@ import { ObjectId } from "mongoose";
 
 export interface IJournal {
   _id: ObjectId;
+  name: string;
   author: string;
   publisher: string;
   genre: string;
@@ -17,6 +18,7 @@ export const journalSchema = new Schema<IJournal>({
     type: mongoose.Schema.Types.ObjectId,
     auto: true,
   },
+  name: { type: String, required: true },
   author: { type: String, required: true },
   publisher: { type: String, required: true },
   genre: { type: String, required: true },

@@ -1,5 +1,4 @@
 import { JournalsService } from "../service/journal.service";
-import { Request, Response } from "express";
 import { AbstractItemControllers } from "./abstract_item_controllers";
 import router from "./books.controllers";
 import { JournalsModal } from "../model/journal.model";
@@ -15,16 +14,16 @@ class JournalControllers extends AbstractItemControllers {
 
 const journalController = new JournalControllers();
 
-router.get("/", async (req, res) => {
+router.get("/get", async (req, res) => {
   try {
-    const books = await journalController.getService().getData();
-    res.json(books);
+    const Journals = await journalController.getService().getData();
+    res.json(Journals);
   } catch (err) {
     res.status(500).json({ error: "err.message" });
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/post", async (req, res) => {
   try {
     const {
       name,
@@ -62,8 +61,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.delete("/", async (req, res) => {
-  console.log(req.body._id, "hjh");
+router.delete("/delete", async (req, res) => {
   try {
     const deleteJournal = await journalController
       .getService()
@@ -71,7 +69,7 @@ router.delete("/", async (req, res) => {
     return res.status(200).json({
       status: 200,
       data: deleteJournal,
-      message: "Successfully removed Book",
+      message: "Successfully removed Journal",
     });
   } catch (err: any) {
     console.log(err);
@@ -82,7 +80,7 @@ router.delete("/", async (req, res) => {
   }
 });
 
-router.put("/", async (req, res) => {
+router.put("/update", async (req, res) => {
   try {
     const updateJournalData = await journalController
       .getService()
@@ -91,7 +89,6 @@ router.put("/", async (req, res) => {
     return res.status(200).json({
       status: 200,
       data: updateJournalData,
-      message: "Successfully removed Book",
     });
   } catch (err) {
     console.log(err);

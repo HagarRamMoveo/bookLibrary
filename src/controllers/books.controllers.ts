@@ -56,7 +56,6 @@ router.post("/", async (req, res) => {
 });
 
 router.delete("/", async (req, res) => {
-  console.log(req.body._id, "hjh");
   try {
     const deleteBook = await booksController
       .getService()
